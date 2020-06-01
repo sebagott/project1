@@ -1,0 +1,28 @@
+{% extends "logged_base.html" %}
+
+{% block subtitle %} Home {% endblock %}
+
+{% block content %}
+        <div id="results-container" class="container align-items-center">
+            {% if search is defined %}
+                
+                {% if results is defined %}
+                    <p> Showing <b>{{ results|length }}</b> results for: <b>{{ search }}</b></p>                          
+                    {% for book in results %}
+                        <div id="search-results" class="list-group">
+                            <a href="{{ url_for('book', book_id= book.id) }}" class="list-group-item list-group-item-action flex-column align-items-start mb-1">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><i>{{ book.title}}</i> ({{ book.year }})</h5>
+                                    <small>ISBN: {{ book.isbn }}</small>
+                                </div>
+                                <p class="mb-1">{{ book.name }}</p>                            
+                            </a>                                                
+                        </div>
+                    {% endfor %}  
+                {% else %}            
+                    <p> Couldn't find any results for: <b>{{ search }}</b></p>        
+                {% endif %}
+
+            {% endif %}
+        </div>
+{% endblock %}

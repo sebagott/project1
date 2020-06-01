@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Reviews - {% block subtitle %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='libro.svg') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>        
+        <div id="title" class="row rounded-lg">
+            <div class="col-4"><img src="{{ url_for('static', filename='libro.svg') }}" alt="logo"></div>
+            <div class="col-5"><a href="{{ url_for('home') }}"> <h1>Book Reviews</h1> </a></div>
+        </div>
+        
+    </header>
+    <section id="top-content" class="">
+        {% block userbox %}
+        {% endblock %}
+    </section>
+    <section id="bottom-content" class="">    
+        {% block content %}
+        {% endblock %}
+    </section>    
+    <footer class="text-center">        
+        <p class="">
+            Website made by <a href="https://sebagott.github.io/project0/index.html"> Sebastián Gálvez</a>. 
+            Icons made by 
+            <a href="https://www.flaticon.es/autores/eucalyp" title="Eucalyp">Eucalyp</a>, 
+            <a href="http://www.freepik.com/" title="Freepik">Freepik</a>,
+            <a href="https://www.flaticon.com/free-icon/learning_201608?term=reading&page=1&position=26" title="Icon Pond">Icon Pond</a>,
+            <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> and
+            <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a>
+             from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.          
+            Cover photo created by <a href="https://www.freepik.com/free-photos-vectors/vintage">vectorpouch - www.freepik.com</a>        
+        </p>
+    </footer>
+</body>
+
+</html>

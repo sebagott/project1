@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block subtitle %} Register {% endblock %}
+
+{% block content %}    
+        <div class="container text-center justify-content-center">
+            <form action="{{ url_for('register') }}" method="post" class="form-signup rounded-lg" >
+                {% if registration_invalid %}
+                <div class="alert alert-danger mb-3" role="alert">The username is already registered. Try again with a different name.</div>
+                {% endif %}
+                <h3 class="mb-3">Create your account</h3>
+                <input type="text" name="username" class="form-control mb-2 rounded" placeholder="Username" required="" autofocus="">
+                <input type="password" name="password" class="form-control mb-4 rounded" placeholder="Password" required="">
+                <div class="avatar-selection container mb-3">
+                    <p class="text-left mb-3">Choose your avatar: </p>
+                    <div class="row justify-content-md-center mb-3">
+                        {% for avatar in avatars %}
+                            <div class="radio col-xs-6 col-sm-4">
+                                <input type="radio" name="avatar_id" value={{ avatar.id }} required="">
+                                <img src="{{ url_for('static', filename= avatar.filename) }}" alt="">
+                            </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                <button class="btn btn-lg btn-danger btn-block" type="submit">Register</button>
+            </form>
+        </div>    
+
+{% endblock %}
