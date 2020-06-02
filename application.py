@@ -199,5 +199,5 @@ def api(isbn):
     			"average_score": book.current_rating
 			})
 			return jbook, 200			
-		return jsonify({"error":"Book not found"}), 403
+		return jsonify({"error":"Book not found"}), 404
 	return jsonify({"error":"Invalid request"}), 400

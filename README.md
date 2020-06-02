@@ -32,7 +32,7 @@ The files and folders included in this project are as follow:
 
 - `static` folder: Contains all images used as icons or background, with proper mention to the authors shown on the footer section of the website.
 
-Finally, the url `/api/isbn` implements the API that will return a 400 error for bad requests (any request different than GET), 403 error for book not found, and 200 HTTP response for success request for a book using the ISBN number, along with a JSON response containing the book information as follows: 
+Finally, the url `/api/isbn` implements the API that will return a 400 error for bad requests (any request different than GET), 404 error for book not found, and 200 HTTP response for success request for a book using the ISBN number, along with a JSON response containing the book information as follows: 
 
 `{
     "title": "Memory",
@@ -42,4 +42,3 @@ Finally, the url `/api/isbn` implements the API that will return a 400 error for
     "review_count": 28,
     "average_score": 5.0
 }
-`
